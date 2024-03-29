@@ -13,7 +13,6 @@
             margin-top: 4rem;
             margin-left: auto;
             margin-right: auto;
-            /* position: relative; */
             text-align: right;
         }
 
@@ -31,8 +30,8 @@
             position: absolute;
             right: 0;
             top: 0;
-
-            transition: width 1s;
+            overflow: hidden;
+            transition: width .9s;
         }
 
         .main-picture-slided {
@@ -44,11 +43,14 @@
             background-image: url("img/0.jpg");
         }
 
+        img{
+            width: 600px;
+        }
+
         #dots {
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
-            /* position: inherit; */
         }
 
         .aDot {
@@ -115,8 +117,10 @@
         function createMainPicture(colDotNumber) {
             let newMainPicture = document.createElement("div");
             newMainPicture.classList.add("main-picture-slide-in");
-            newMainPicture.style.backgroundImage = "url('img/" + colDotNumber + ".jpg')";
             newMainPicture.addEventListener("transitionend", function () { this.previousElementSibling.remove() });
+            let newPhoto = document.createElement("img");
+            newPhoto.src = "img/" + colDotNumber + ".jpg";
+            newMainPicture.appendChild(newPhoto);
             MAIN_PICTURE_COLOR.appendChild(newMainPicture);
             return newMainPicture;
         }
