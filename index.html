@@ -41,7 +41,7 @@
 
         .main-picture-init {
             width: 100%;
-            background-color: aquamarine;
+            background-image: url("img/0.jpg");
         }
 
         #dots {
@@ -115,8 +115,8 @@
         function createMainPicture(colDotNumber) {
             let newMainPicture = document.createElement("div");
             newMainPicture.classList.add("main-picture-slide-in");
-            newMainPicture.style.backgroundColor = COLORS[colDotNumber];
-            newMainPicture.addEventListener("transitionend", function(){this.previousElementSibling.remove()});
+            newMainPicture.style.backgroundImage = "url('img/" + colDotNumber + ".jpg')";
+            newMainPicture.addEventListener("transitionend", function () { this.previousElementSibling.remove() });
             MAIN_PICTURE_COLOR.appendChild(newMainPicture);
             return newMainPicture;
         }
